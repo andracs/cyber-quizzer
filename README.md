@@ -9,6 +9,7 @@ Små quizzer til opsamling i it-sikkerhed. Ét spørgsmål ad gangen, med forkla
 | Quiz | Fag | Spørgsmål |
 |------|-----|-----------|
 | [Beskyttelse af it-systemer](https://andracs.github.io/cyber-quizzer/systemsikkerhed/) | Systemsikkerhed | 23 |
+| [Etisk hacking og pentest](https://andracs.github.io/cyber-quizzer/etisk-hacking/) | Etisk hacking | 18 |
 
 ## Brug
 

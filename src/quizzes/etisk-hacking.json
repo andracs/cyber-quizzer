@@ -1,0 +1,275 @@
+{
+  "titel": "Etisk hacking og pentest",
+  "undertitel": "Opsamling i Etisk hacking",
+  "fag": "Etisk hacking",
+  "runder": [
+    {
+      "id": 1,
+      "navn": "Jura og etik (opvarmning)"
+    },
+    {
+      "id": 2,
+      "navn": "Metode og typer"
+    },
+    {
+      "id": 3,
+      "navn": "Scanning og adgang (dobbelte point)"
+    },
+    {
+      "id": 4,
+      "navn": "Efter indbruddet og den virkelige verden"
+    },
+    {
+      "id": 5,
+      "navn": "Reserve"
+    }
+  ],
+  "spoergsmaal": [
+    {
+      "runde": 1,
+      "type": "mc",
+      "titel": "Pentest eller hacking?",
+      "tekst": "Hvad gør juridisk set forskellen på en pentest og ulovlig hacking efter straffelovens § 263?",
+      "svar": [
+        "Om man bruger Kali Linux eller egne værktøjer",
+        "Om adgangen er \"uberettiget\"",
+        "Om man stjæler data eller bare kigger",
+        "Om man melder sårbarheden bagefter"
+      ],
+      "rigtigt": 1,
+      "forklaring": "Pentesteren gør præcis det, § 263 beskriver: skaffer sig adgang til andres system. Det er den klare aftale, der fjerner det \"uberettigede\"."
+    },
+    {
+      "runde": 1,
+      "type": "mc",
+      "titel": "Aftalerne på plads",
+      "tekst": "Hvilke to aftaler bør en pentester som minimum have på plads med kunden?",
+      "svar": [
+        "SLA og DPA",
+        "CSA (konsulent- og samarbejdsaftale) og NDA",
+        "GDPR-samtykke og ISO-certifikat",
+        "Bug bounty-vilkår og CVE-registrering"
+      ],
+      "rigtigt": 1,
+      "forklaring": "CSA'et fastlægger opgaven, ansvarsfordelingen og rettighederne; NDA'en beskytter fortrolige oplysninger om sårbarheder og systemer."
+    },
+    {
+      "runde": 1,
+      "type": "mc",
+      "titel": "Hatten på",
+      "tekst": "En hacker finder huller på en webshop uden aftale og tilbyder bagefter at lukke dem mod betaling. Hvilken hattefarve?",
+      "svar": [
+        "White hat",
+        "Black hat",
+        "Gray hat",
+        "Red hat"
+      ],
+      "rigtigt": 2,
+      "forklaring": "Gråzonen mellem lovligt og ulovligt. Mange gray hats opfatter sig selv som white hats."
+    },
+    {
+      "runde": 1,
+      "type": "sandtfalsk",
+      "titel": "Faren i børnehaven",
+      "tekst": "Faderen, der testede sikkerheden i sit barns børnehavesystem og anmeldte hullet, blev endeligt dømt for hacking.",
+      "rigtigt": false,
+      "forklaring": "Dømt i byretten, frifundet i landsretten. Et godt springbræt til diskussion: Gode intentioner er ikke det samme som en aftale."
+    },
+    {
+      "runde": 2,
+      "type": "mc",
+      "titel": "Begrænset viden",
+      "tekst": "\"Begrænset viden om systemet, tester som en bruger.\" Hvilken testtype?",
+      "svar": [
+        "Black box",
+        "White box",
+        "Gray box",
+        "Red box"
+      ],
+      "rigtigt": 2,
+      "forklaring": "Gray box: pentesteren har delvis viden, fx dokumentation eller credentials, men tester stadig udefra som en bruger."
+    },
+    {
+      "runde": 2,
+      "type": "mc",
+      "titel": "White box' største hage",
+      "tekst": "Hvad er den største ulempe ved en white box-test?",
+      "svar": [
+        "Den er altid ulovlig",
+        "Den finder ikke angrebsflader, som virksomheden ikke selv kender til",
+        "Den kræver, at pentesteren arbejder anonymt",
+        "Den kan kun bruges på webapplikationer"
+      ],
+      "rigtigt": 1,
+      "forklaring": "Når testen bygger på virksomhedens eget kort over systemet, blinder den over for det, der ikke står på kortet: skygge-it, glemte systemer, uregistrerede angrebsflader."
+    },
+    {
+      "runde": 2,
+      "type": "mc",
+      "titel": "Pentest-cirklen",
+      "tekst": "Hvilken fase i pentest-cirklen kommer lige *før* exploitation?",
+      "svar": [
+        "Rekognoscering",
+        "Discovery",
+        "Søgning efter sårbarheder og attack vectors",
+        "Post exploitation"
+      ],
+      "rigtigt": 2,
+      "forklaring": "Cirklen løber rekognoscering → discovery → søgning efter sårbarheder og attack vectors → exploitation → post exploitation."
+    },
+    {
+      "runde": 2,
+      "type": "mc",
+      "titel": "Spor i loggen",
+      "tekst": "Hvad er der galt med denne påstand: \"Det er passiv rekognoscering at besøge målets hjemmeside\"?",
+      "svar": [
+        "Intet, det er passivt",
+        "Det er aktivt, fordi besøget efterlader spor i målets logs",
+        "Det er ulovligt",
+        "Det tæller kun som OSINT, hvis man bruger Maltego"
+      ],
+      "rigtigt": 1,
+      "forklaring": "Passiv rekognoscering betyder ingen kontakt med selve målet. Selv et sidebesøg giver et footprint i målets logs."
+    },
+    {
+      "runde": 2,
+      "type": "mc",
+      "titel": "Skygger på netværket",
+      "tekst": "Medarbejdernes private telefoner, en Dropbox-konto som ingen har godkendt, og IoT-enheder på netværket. Hvad kalder man det samlet?",
+      "svar": [
+        "Zero-day",
+        "Shadow IT",
+        "Lateral movement",
+        "Honeypot"
+      ],
+      "rigtigt": 1,
+      "forklaring": "Shadow IT er it, som virksomheden ikke kender til eller har godkendt. Det er angrebsflade uden styring, patching eller logning."
+    },
+    {
+      "runde": 3,
+      "type": "mc",
+      "titel": "Øksen eller kniven",
+      "tekst": "Kapitlet sammenligner automatiseret og manuel scanning med to redskaber. Hvilke?",
+      "svar": [
+        "Hammer og skruetrækker",
+        "Økse og kirurgisk kniv",
+        "Kikkert og lup",
+        "Fiskenet og fiskestang"
+      ],
+      "rigtigt": 1,
+      "forklaring": "Automatiseret scanning er øksen: bred og hurtig. Manuel testning er den kirurgiske kniv: præcis, hvor det gør ondt."
+    },
+    {
+      "runde": 3,
+      "type": "mc",
+      "titel": "Half-open",
+      "tekst": "Hvorfor er en SYN-scanning (half-open) mere diskret end en almindelig forbindelse?",
+      "svar": [
+        "Den er krypteret",
+        "Den gennemfører aldrig hele 3-way handshake, så applikationen ser ingen forbindelse",
+        "Den bruger UDP i stedet for TCP",
+        "Den kører kun om natten"
+      ],
+      "rigtigt": 1,
+      "forklaring": "Scanneren sender SYN, får SYN-ACK tilbage og stopper der. TCP-forbindelsen fuldføres aldrig, så mange applikationer og logmechanismer opdager den ikke."
+    },
+    {
+      "runde": 3,
+      "type": "mc",
+      "titel": "Reverse slår bind",
+      "tekst": "Hvorfor lykkes en reverse shell oftere end en bind shell?",
+      "svar": [
+        "Den er hurtigere",
+        "Firewalls blokerer typisk indgående trafik, men tillader udgående",
+        "Den kræver ikke en sårbarhed",
+        "Den virker kun på Windows"
+      ],
+      "rigtigt": 1,
+      "forklaring": "Reverse shell kalder ud fra målet, hvor udgående trafik ofte er tilladt. Forsvarsvinkel: Det er derfor, egress-filtrering betyder noget."
+    },
+    {
+      "runde": 3,
+      "type": "mc",
+      "titel": "Payload på målret",
+      "tekst": "I Metasploit-terminologi: Hvad er en payload?",
+      "svar": [
+        "Koden, der udnytter sikkerhedshullet",
+        "Koden, der kører på målet bagefter, fx for at åbne en shell",
+        "Et scanningsmodul",
+        "Rapporten til kunden"
+      ],
+      "rigtigt": 1,
+      "forklaring": "Exploiten åbner hullet; payloaden er det, der sendes ind bagefter: en shell, en Meterpreter-session, en eksfiltreringskanal."
+    },
+    {
+      "runde": 4,
+      "type": "mc",
+      "titel": "WannaCry",
+      "tekst": "WannaCry spredte sig i 2017 via en lækket exploit (EternalBlue). Hvilken tjeneste var sårbar?",
+      "svar": [
+        "RDP",
+        "SMBv1",
+        "SSH",
+        "DNS"
+      ],
+      "rigtigt": 1,
+      "forklaring": "Rammte også mål i Danmark. Læringen er, at patching og udfasning af gamle protokoller er forsvar."
+    },
+    {
+      "runde": 4,
+      "type": "mc",
+      "titel": "Hvor stopper pentesteren?",
+      "tekst": "Hvad adskiller pentesteren fra hackeren i den sidste fase?",
+      "svar": [
+        "Pentesteren sletter sine spor bedre",
+        "Pentesteren stopper ved rapporten, mens hackeren bevarer adgang og skjuler spor",
+        "Hackeren skriver også en rapport",
+        "Der er ingen forskel"
+      ],
+      "rigtigt": 1,
+      "forklaring": "For hackeren er adgangen målet: den bevares og skjules. For pentesteren er den midlet: den dokumenteres og afleveres."
+    },
+    {
+      "runde": 4,
+      "type": "mc",
+      "titel": "Rapporten er pointen",
+      "tekst": "Hvad skal vægten ligge på i en god pentest-rapport?",
+      "svar": [
+        "En detaljeret beskrivelse af, hvor dygtig pentesteren var",
+        "En liste over alle værktøjer, der blev brugt",
+        "Løsningsforslag og forbedrede procedurer",
+        "Rå scanningsoutput"
+      ],
+      "rigtigt": 2,
+      "forklaring": "Rapporten skal gøre kunden sikrere, ikke imponere over værktøjer. Og husk executive summary til ledelsen: det er den, der får sikkerhed på dagsordenen."
+    },
+    {
+      "runde": 5,
+      "type": "mc",
+      "titel": "Nyborg-sagen",
+      "tekst": "En sikkerhedskonsulent udgav sig for at være kommunens it-medarbejder over for personalet på en skole i Nyborg. Hvad aftalte KL bagefter om den slags test?",
+      "svar": [
+        "Social engineering er nu helt forbudt i test",
+        "Testene må ikke være krænkende, og der skal være et rimeligt forhold mellem mål og midler",
+        "Konsulenten skal altid anmeldes til politiet før testen",
+        "Testene må kun køre uden for skolens åbningstider"
+      ],
+      "rigtigt": 1,
+      "forklaring": "Testen var i sig selv aftalt, men den ramte personer, der ikke vidste noget om den. Krænkende test og disproportionale metoder er ikke acceptable, selv når målet er godt."
+    },
+    {
+      "runde": 5,
+      "type": "mc",
+      "titel": "CTF-flaget",
+      "tekst": "I en CTF: hvad er flagets funktion?",
+      "svar": [
+        "Et unikt bevis for, at man har haft adgang til en beskyttet ressource",
+        "En kode, der dekrypterer alle de andre udfordringer",
+        "Navnet på det hold, der fører pointligeføringen",
+        "Et tidsstempel for, hvornår udfordringen blev løst"
+      ],
+      "rigtigt": 0,
+      "forklaring": "Flaget er beviset: en unik streng, der kun kan hentes ved faktisk at udnytte sårbarheden i udfordringen."
+    }
+  ]
+}
