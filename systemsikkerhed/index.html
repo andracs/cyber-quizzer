@@ -457,7 +457,7 @@ function intro() {
   keyHandler = (e) => { if (e.key === 'Enter') { e.preventDefault(); go(0); } };
   const answered = state.answers.filter(Boolean).length;
   show(h('section', { class: 'intro' },
-    h('p', { class: 'face', text: ':)', 'aria-hidden': 'true' }),
+    h('p', { class: 'face', text: '🙂', 'aria-hidden': 'true' }),
     h('h1', { text: QUIZ.titel }),
     h('p', { class: 'lede', text: `${QUIZ.undertitel}. ${Q.length} spørgsmål med forklaring efter hvert svar.` }),
     h('div', { class: 'actions' },
@@ -684,7 +684,7 @@ function finish() {
   let lede = right === Q.length ? 'Alle rigtige. Systemet er hærdet.' : 'Klik på et spørgsmål for at se det igen.';
   if (skipped) lede = `${skipped} spørgsmål er ikke besvaret. ${lede}`;
   show(h('section', { class: 'intro' },
-    h('p', { class: 'face', text: share >= 0.8 ? ':D' : share >= 0.5 ? ':)' : ':|', 'aria-hidden': 'true' }),
+    h('p', { class: 'face', text: share >= 0.8 ? '😄' : share >= 0.5 ? '🙂' : '😐', 'aria-hidden': 'true' }),
     h('p', { class: 'score', text: `${right} af ${Q.length} rigtige` }),
     h('p', { class: 'lede', text: lede }),
     h('ol', { class: 'review' }, Q.map((q, k) => {
