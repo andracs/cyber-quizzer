@@ -43,7 +43,7 @@
       "runde": 1,
       "type": "mc",
       "titel": "Aftalerne på plads",
-      "tekst": "Hvilke to aftaler bør en pentester som minimum have på plads med kunden?",
+      "tekst": "Ud over RoE (rules of engagement) og scope-dokumentet for selve testen: hvilke to aftaler bør en pentester som minimum have på plads med kunden?",
       "svar": [
         "SLA og DPA",
         "CSA (konsulent- og samarbejdsaftale) og NDA",
@@ -51,7 +51,7 @@
         "Bug bounty-vilkår og CVE-registrering"
       ],
       "rigtigt": 1,
-      "forklaring": "CSA'et fastlægger opgaven, ansvarsfordelingen og rettighederne; NDA'en beskytter fortrolige oplysninger om sårbarheder og systemer."
+      "forklaring": "Pakken til en pentest er større end to papirer: RoE fastlægger, hvad der må gøres under testen, scope-dokumentet hvor grænserne går, CSA'et aftalen og ansvarsfordelingen, og NDA'en fortroligheden. CSA og NDA er minimum for samarbejdet med kunden."
     },
     {
       "runde": 1,
