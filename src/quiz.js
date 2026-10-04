@@ -5,7 +5,7 @@ const roundName = Object.fromEntries(QUIZ.runder.map((r) => [r.id, r.navn]));
 const LETTERS = ['A', 'B', 'C', 'D'];
 const app = document.getElementById('app');
 const bar = document.querySelector('.progress span');
-const fmt = (n) => Number(n).toLocaleString('da-DK');
+const fmt = (n, q) => (q && q.aar ? String(n) : Number(n).toLocaleString('da-DK'));
 
 // pos: -1 er forsiden, 0..n-1 er spørgsmål, n er resultatet
 const state = { pos: -1, answers: Q.map(() => null), orders: {} };
@@ -87,7 +87,7 @@ function intro() {
   keyHandler = (e) => { if (e.key === 'Enter') { e.preventDefault(); go(0); } };
   const answered = state.answers.filter(Boolean).length;
   show(h('section', { class: 'intro' },
-    h('p', { class: 'face', text: '🙂', 'aria-hidden': 'true' }),
+    h('p', { class: 'face', text: ':)', 'aria-hidden': 'true' }),
     h('h1', { text: QUIZ.titel }),
     h('p', { class: 'lede', text: `${QUIZ.undertitel}. ${Q.length} spørgsmål med forklaring efter hvert svar.` }),
     h('div', { class: 'actions' },
@@ -269,7 +269,7 @@ const TYPES = {
     const set = (x) => {
       val = Math.min(q.max, Math.max(q.min, Math.round(x / step) * step));
       range.value = val;
-      num.textContent = fmt(val);
+      num.textContent = fmt(val, q);
     };
     range.addEventListener('input', () => set(Number(range.value)));
     set(val);
@@ -280,18 +280,21 @@ const TYPES = {
     body.append(h('div', { class: 'estimate' },
       h('output', {}, num, h('small', { text: q.enhed || '' })),
       range,
-      h('div', { class: 'ends' }, h('span', { text: fmt(q.min) }), h('span', { text: fmt(q.max) })),
+      h('div', { class: 'ends' }, h('span', { text: fmt(q.min, q) }), h('span', { text: fmt(q.max, q) })),
       actions));
     return {
       apply(v) {
         set(v);
         range.disabled = true;
         actions.remove();
-        const err = Math.abs(v - q.rigtigt) / Math.max(1, Math.abs(q.rigtigt));
+        const diff = Math.abs(v - q.rigtigt);
+        const err = diff / Math.max(1, Math.abs(q.rigtigt));
         const pct = Math.round(err * 100);
+        const ok = q.tolerance != null ? diff <= q.tolerance : err <= 0.15;
+        const miss = q.tolerance != null ? (diff === 0 ? 'helt præcist' : `${fmt(diff, q)} ${q.aar ? 'år' : q.enhed || ''} ved siden af`.replace(/ +/g, ' ').trim()) : (pct === 0 ? 'helt præcist' : pct + ' % ved siden af');
         return {
-          ok: err <= 0.15,
-          detail: `Rigtigt svar: ${fmt(q.rigtigt)} ${q.enhed || ''}. Du gættede ${fmt(v)}, ${pct === 0 ? 'helt præcist' : pct + ' % ved siden af'}.`,
+          ok,
+          detail: `Rigtigt svar: ${fmt(q.rigtigt, q)} ${q.enhed || ''}. Du gættede ${fmt(v, q)}, ${miss}.`.replace(/ +\./g, '.'),
         };
       },
       keys(e) {
@@ -314,7 +317,7 @@ function finish() {
   let lede = right === Q.length ? 'Alle rigtige. Systemet er hærdet.' : 'Klik på et spørgsmål for at se det igen.';
   if (skipped) lede = `${skipped} spørgsmål er ikke besvaret. ${lede}`;
   show(h('section', { class: 'intro' },
-    h('p', { class: 'face', text: share >= 0.8 ? '😄' : share >= 0.5 ? '🙂' : '😐', 'aria-hidden': 'true' }),
+    h('p', { class: 'face', text: share >= 0.8 ? ':D' : share >= 0.5 ? ':)' : ':|', 'aria-hidden': 'true' }),
     h('p', { class: 'score', text: `${right} af ${Q.length} rigtige` }),
     h('p', { class: 'lede', text: lede }),
     h('ol', { class: 'review' }, Q.map((q, k) => {

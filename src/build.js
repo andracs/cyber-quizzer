@@ -41,14 +41,14 @@ for (const file of fs.readdirSync(path.join(SRC, 'quizzes')).filter((f) => f.end
     data + app);
   fs.mkdirSync(path.join(ROOT, slug), { recursive: true });
   fs.writeFileSync(path.join(ROOT, slug, 'index.html'), html);
-  quizzes.push({ slug, titel: quiz.titel, fag: quiz.fag || '', n: quiz.spoergsmaal.length });
+  quizzes.push({ slug, emoji: quiz.emoji || '📝', titel: quiz.titel, undertitel: quiz.undertitel || '', fag: quiz.fag || '', n: quiz.spoergsmaal.length });
   console.log(`${slug}/index.html  ${quiz.spoergsmaal.length} spørgsmål`);
 }
 
-const list = quizzes.map((q) => `    <li><a href="${q.slug}/"><span>${esc(q.titel)}</span><small>${esc(q.fag)}, ${q.n} spørgsmål</small></a></li>`).join('\n');
+const list = quizzes.map((q) => `    <li><a href="${q.slug}/"><span>${esc(q.emoji)} ${esc(q.titel)}</span><small>${esc(q.fag)}, ${q.n} spørgsmål</small></a></li>`).join('\n');
 fs.writeFileSync(path.join(ROOT, 'index.html'), page('Cyber-quizzer', `<main>
   <section class="intro">
-    <p class="face" aria-hidden="true">🙂</p>
+    <p class="face" aria-hidden="true">:)</p>
     <h1>Cyber-quizzer</h1>
     <p class="lede">Små quizzer til opsamling i it-sikkerhed. Ét spørgsmål ad gangen, med forklaring efter hvert svar.</p>
     <ul class="quizlist">
@@ -57,3 +57,17 @@ ${list}
   </section>
 </main>`));
 console.log('index.html');
+
+// README: tabellen mellem markørerne genereres, så links og emojis altid passer til quizzerne.
+const BASE = 'https://andracs.github.io/cyber-quizzer/';
+const rows = quizzes.map((q) => `| ${q.emoji} | [${q.titel}](${BASE}${q.slug}/) | ${q.fag} | ${q.n} | \`${BASE}${q.slug}/\` |`);
+const table = ['<!-- quizzer:start -->', '| | Quiz | Fag | Spørgsmål | Link |', '|---|------|-----|-----------|------|', ...rows, '<!-- quizzer:end -->'].join('\n');
+const readmePath = path.join(ROOT, 'README.md');
+let readme = fs.readFileSync(readmePath, 'utf8');
+if (readme.includes('<!-- quizzer:start -->')) {
+  readme = readme.replace(/<!-- quizzer:start -->[\s\S]*<!-- quizzer:end -->/, table);
+} else {
+  readme = readme.replace(/\| Quiz \| Fag[\s\S]*?\n(?=\n)/, table + '\n');
+}
+fs.writeFileSync(readmePath, readme);
+console.log('README.md');
