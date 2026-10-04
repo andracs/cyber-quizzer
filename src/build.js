@@ -48,7 +48,7 @@ for (const file of fs.readdirSync(path.join(SRC, 'quizzes')).filter((f) => f.end
 const list = quizzes.map((q) => `    <li><a href="${q.slug}/"><span>${esc(q.emoji)} ${esc(q.titel)}</span><small>${esc(q.fag)}, ${q.n} spørgsmål</small></a></li>`).join('\n');
 fs.writeFileSync(path.join(ROOT, 'index.html'), page('Cyber-quizzer', `<main>
   <section class="intro">
-    <p class="face" aria-hidden="true">:)</p>
+    <p class="face" aria-hidden="true">🧠</p>
     <h1>Cyber-quizzer</h1>
     <p class="lede">Små quizzer til opsamling i it-sikkerhed. Ét spørgsmål ad gangen, med forklaring efter hvert svar.</p>
     <ul class="quizlist">

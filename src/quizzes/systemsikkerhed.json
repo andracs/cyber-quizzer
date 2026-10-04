@@ -6,29 +6,35 @@
   "runder": [
     {
       "id": 1,
-      "navn": "Hvem er du?"
+      "navn": "Hvem er du?",
+      "emoji": "🪪"
     },
     {
       "id": 2,
-      "navn": "Nogen er inde"
+      "navn": "Nogen er inde",
+      "emoji": "🚨"
     },
     {
       "id": 3,
-      "navn": "Skyen er bare en andens computer"
+      "navn": "Skyen er bare en andens computer",
+      "emoji": "☁️"
     },
     {
       "id": 4,
-      "navn": "Fredag morgen, serveren er død"
+      "navn": "Fredag morgen, serveren er død",
+      "emoji": "🔥"
     },
     {
       "id": 5,
-      "navn": "Finale"
+      "navn": "Finale",
+      "emoji": "🏁"
     }
   ],
   "spoergsmaal": [
     {
       "runde": 1,
       "type": "mc",
+      "emoji": "🔢",
       "titel": "Hvor mange faktorer?",
       "tekst": "Hvilket login er *ikke* ægte 2FA?",
       "svar": [
@@ -43,6 +49,7 @@
     {
       "runde": 1,
       "type": "mc",
+      "emoji": "📱",
       "titel": "MitID gjorde sit arbejde",
       "tekst": "Du logger ind på en kommunal selvbetjening med MitID. Hvad har MitID klaret for dig?",
       "svar": [
@@ -57,6 +64,7 @@
     {
       "runde": 1,
       "type": "mc",
+      "emoji": "🔒",
       "titel": "Opskriften på en hærdet server",
       "tekst": "Du skal hærde en ny Ubuntu-server med Docker og PostgreSQL. Hvor finder du community-skrevne anbefalinger til sikker konfiguration af netop de systemer?",
       "svar": [
@@ -71,6 +79,7 @@
     {
       "runde": 1,
       "type": "sandtfalsk",
+      "emoji": "📧",
       "titel": "Hængelåsen i mailen",
       "tekst": "Når forbindelsen mellem mailserverne er krypteret med TLS, kan kun afsender og modtager læse mailen.",
       "rigtigt": false,
@@ -79,6 +88,7 @@
     {
       "runde": 2,
       "type": "mc",
+      "emoji": "🌙",
       "titel": "Klokken 02.13",
       "tekst": "Klokken 02.13 genkender et system en kendt exploit-signatur i trafikken og dropper pakkerne automatisk. Ingen er vågne. Hvad er det?",
       "svar": [
@@ -93,6 +103,7 @@
     {
       "runde": 2,
       "type": "mc",
+      "emoji": "💶",
       "titel": "Lønbogholderen",
       "tekst": "Lønbogholderen logger ind med sit helt gyldige login kl. 03.40 en lørdag og trækker 40 GB kundedata. Ingen malware, ingen kendte signaturer. Hvad er bedst til at opdage det?",
       "svar": [
@@ -107,6 +118,7 @@
     {
       "runde": 2,
       "type": "mc",
+      "emoji": "🦊",
       "titel": "Wazuh",
       "tekst": "Hvad er Wazuh?",
       "svar": [
@@ -121,6 +133,7 @@
     {
       "runde": 2,
       "type": "mc",
+      "emoji": "📺",
       "titel": "Smart-TV'et i mødelokalet",
       "tekst": "En angriber har fået fodfæste på smart-TV'et i mødelokalet. Netværket er fladt. Hvad gør det sværest for ham at nå økonomiserveren?",
       "svar": [
@@ -135,6 +148,7 @@
     {
       "runde": 2,
       "type": "mc",
+      "emoji": "🚧",
       "titel": "DMZ",
       "tekst": "Hvilken server hører hjemme i DMZ'en?",
       "svar": [
@@ -149,6 +163,7 @@
     {
       "runde": 2,
       "type": "mc",
+      "emoji": "🙅",
       "titel": "Never trust",
       "tekst": "Hvad er kerneideen i zero trust?",
       "svar": [
@@ -163,6 +178,7 @@
     {
       "runde": 2,
       "type": "sandtfalsk",
+      "emoji": "📡",
       "titel": "Skjult SSID",
       "tekst": "Et skjult SSID forhindrer en målrettet angriber i at finde jeres wi-fi.",
       "rigtigt": false,
@@ -171,6 +187,7 @@
     {
       "runde": 2,
       "type": "mc",
+      "emoji": "🔍",
       "titel": "Shodan",
       "tekst": "Hvad er Shodan?",
       "svar": [
@@ -185,6 +202,7 @@
     {
       "runde": 3,
       "type": "raekkefoelge",
+      "emoji": "🩹",
       "titel": "Hvem patcher hvad?",
       "tekst": "Sortér fra *mest* til *mindst* eget drifts- og sikkerhedsansvar.",
       "elementer": [
@@ -198,6 +216,7 @@
     {
       "runde": 3,
       "type": "mc",
+      "emoji": "🔗",
       "titel": "\"Alle med linket\"",
       "tekst": "I bruger Microsoft 365. En kollega deler en mappe med kundedata via et \"alle med linket\"-link, og den bliver fundet. Hvem har ansvaret?",
       "svar": [
@@ -212,6 +231,7 @@
     {
       "runde": 3,
       "type": "mc",
+      "emoji": "📊",
       "titel": "Budget_FINAL_v7_rigtig_final.xlsx",
       "tekst": "Fællesdrevet rummer 14 kopier af \"Budget_FINAL_v7_rigtig_final.xlsx\" fra 2019, som ingen bruger. Hvad kalder kapitlet det?",
       "svar": [
@@ -226,6 +246,7 @@
     {
       "runde": 3,
       "type": "mc",
+      "emoji": "🖥️",
       "titel": "Den gamle GPU",
       "tekst": "Du sælger din gamle GPU og mailer køberen originalbilledet, taget derhjemme med telefonen. Hvad kan filen afsløre, som ikke ses på billedet?",
       "svar": [
@@ -240,6 +261,7 @@
     {
       "runde": 4,
       "type": "mc",
+      "emoji": "⛓️",
       "titel": "Kæden",
       "tekst": "Full backup mandag nat. Inkrementel backup tirsdag, onsdag og torsdag nat. Fredag morgen dør serveren. Hvad skal du bruge for at gendanne alt?",
       "svar": [
@@ -254,6 +276,7 @@
     {
       "runde": 4,
       "type": "mc",
+      "emoji": "➕",
       "titel": "Den ekstra 1'er",
       "tekst": "Hvorfor kræver 3-2-1-1-0-reglen mindst én kopi, der er offline eller immutable?",
       "svar": [
@@ -268,6 +291,7 @@
     {
       "runde": 4,
       "type": "mc",
+      "emoji": "0️⃣",
       "titel": "0'et",
       "tekst": "Hvad står 0'et i 3-2-1-1-0 for?",
       "svar": [
@@ -282,6 +306,7 @@
     {
       "runde": 4,
       "type": "mc",
+      "emoji": "🗑️",
       "titel": "Retten til at blive glemt",
       "tekst": "En kunde beder om at blive slettet. Kundens data ligger også i inkrementelle backups, som ikke kan redigeres. Hvad gør I?",
       "svar": [
@@ -296,6 +321,7 @@
     {
       "runde": 4,
       "type": "mc",
+      "emoji": "🏢",
       "titel": "Hot site",
       "tekst": "Alarmcentralen må ikke gå ned, heller ikke hvis datacentret brænder. Hvad vælger I?",
       "svar": [
@@ -310,6 +336,7 @@
     {
       "runde": 4,
       "type": "mc",
+      "emoji": "📄",
       "titel": "Papir",
       "tekst": "Mærsks tidligere CIO anbefaler efter NotPetya, at beredskabsplan, roller og telefonlister findes udprintet. Hvorfor?",
       "svar": [
@@ -324,6 +351,7 @@
     {
       "runde": 5,
       "type": "estimat",
+      "emoji": "🦠",
       "titel": "NotPetya",
       "tekst": "Juni 2017. Hvor mange pc'er måtte Mærsk geninstallere efter NotPetya?",
       "rigtigt": 45000,

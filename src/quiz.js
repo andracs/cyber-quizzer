@@ -1,7 +1,7 @@
 'use strict';
 // QUIZ indsættes af build.js
 const Q = QUIZ.spoergsmaal;
-const roundName = Object.fromEntries(QUIZ.runder.map((r) => [r.id, r.navn]));
+const roundName = Object.fromEntries(QUIZ.runder.map((r) => [r.id, (r.emoji ? r.emoji + ' ' : '') + r.navn]));
 const LETTERS = ['A', 'B', 'C', 'D'];
 const app = document.getElementById('app');
 const bar = document.querySelector('.progress span');
@@ -87,7 +87,7 @@ function intro() {
   keyHandler = (e) => { if (e.key === 'Enter') { e.preventDefault(); go(0); } };
   const answered = state.answers.filter(Boolean).length;
   show(h('section', { class: 'intro' },
-    h('p', { class: 'face', text: ':)', 'aria-hidden': 'true' }),
+    h('p', { class: 'face', text: QUIZ.emoji || '🎯', 'aria-hidden': 'true' }),
     h('h1', { text: QUIZ.titel }),
     h('p', { class: 'lede', text: `${QUIZ.undertitel}. ${Q.length} spørgsmål med forklaring efter hvert svar.` }),
     h('div', { class: 'actions' },
@@ -110,6 +110,7 @@ function question(i) {
         h('span', { class: 'pos-label', text: `${i + 1} af ${Q.length}` }),
         h('button', { class: 'navbtn', type: 'button', 'aria-label': 'Næste', text: '›', onclick: () => go(i + 1) })),
       h('span', { text: roundName[q.runde] })),
+    q.emoji ? h('p', { class: 'qemoji', text: q.emoji, 'aria-hidden': 'true' }) : null,
     title,
     body);
   const ui = TYPES[q.type](q, body, i);
@@ -137,8 +138,9 @@ function feedback(i, fresh) {
   const last = i === Q.length - 1;
   const next = h('button', { class: 'btn', type: 'button', text: last ? 'Se resultatet' : 'Næste spørgsmål', onclick: () => go(i + 1) });
   const verdict = q.type === 'estimat' ? (a.ok ? 'Tæt nok på.' : 'Ikke tæt nok på.') : (a.ok ? 'Rigtigt.' : 'Ikke helt.');
+  const mark = a.ok ? '✅ ' : '❌ ';
   app.append(h('section', { class: 'feedback' + (fresh ? '' : ' still') },
-    h('p', { class: 'verdict ' + (a.ok ? 'right' : 'wrong') }, verdict, a.detail ? h('span', { class: 'detail', text: ' ' + a.detail }) : null),
+    h('p', { class: 'verdict ' + (a.ok ? 'right' : 'wrong') }, mark + verdict, a.detail ? h('span', { class: 'detail', text: ' ' + a.detail }) : null),
     rich(h('p', { class: 'explain' }), q.forklaring),
     h('div', { class: 'actions' }, next)));
   if (fresh) next.focus({ preventScroll: true });
@@ -317,7 +319,7 @@ function finish() {
   let lede = right === Q.length ? 'Alle rigtige. Systemet er hærdet.' : 'Klik på et spørgsmål for at se det igen.';
   if (skipped) lede = `${skipped} spørgsmål er ikke besvaret. ${lede}`;
   show(h('section', { class: 'intro' },
-    h('p', { class: 'face', text: share >= 0.8 ? ':D' : share >= 0.5 ? ':)' : ':|', 'aria-hidden': 'true' }),
+    h('p', { class: 'face', text: share === 1 ? '🏆' : share >= 0.8 ? '🎉' : share >= 0.5 ? '🙂' : '🤔', 'aria-hidden': 'true' }),
     h('p', { class: 'score', text: `${right} af ${Q.length} rigtige` }),
     h('p', { class: 'lede', text: lede }),
     h('ol', { class: 'review' }, Q.map((q, k) => {
@@ -325,7 +327,7 @@ function finish() {
       const [cls, label] = !a ? ['skip', 'Ikke besvaret'] : a.ok ? ['ok', 'Rigtigt'] : ['miss', 'Forkert'];
       return h('li', {}, h('button', { type: 'button', onclick: () => go(k) },
         h('span', { class: 'n', text: k + 1 }),
-        h('span', { class: 't', text: q.titel }),
+        h('span', { class: 't', text: (q.emoji ? q.emoji + ' ' : '') + q.titel }),
         h('span', { class: 'r ' + cls, text: label })));
     })),
     h('div', { class: 'actions' }, h('button', { class: 'btn', type: 'button', text: 'Tag quizzen igen', onclick: restart }))));
